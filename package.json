@@ -1,0 +1,39 @@
+{
+  "name": "riot-tft",
+  "version": "0.1.0",
+  "description": "Connecting to the riot tft api, simple wrapper and parser",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest --testPathIgnorePatterns manualTests",
+    "test:manual": "jest --testPathIgnorePatterns src"
+  },
+  "keywords": [
+    "riot",
+    "tft",
+    "typescript"
+  ],
+  "author": "David Li",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "@types/jest": "^24.0.22",
+    "dotenv": "^8.2.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.5.3",
+    "node-fetch": "^2.6.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "dist/*.js",
+      "node_modules"
+    ]
+  }
+}
