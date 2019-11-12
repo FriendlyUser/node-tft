@@ -1,11 +1,19 @@
-import { RegionUrl } from '../enums'
+import { PlatformUrls, RegionalUrls } from '../enums'
 
 export class Config {
   private RIOT_API_KEY: string
-  BASE_URL: RegionUrl
-  constructor(RIOT_API_KEY: string, BASE_URL: RegionUrl = RegionUrl.AMERICAS) {
+  REGION_URL: RegionalUrls | string
+  PLATFORM_URL: PlatformUrls | string
+  constructor(
+    RIOT_API_KEY: string, 
+    REGION_URL: RegionalUrls | string = RegionalUrls.AMERICAS,
+    PLATFORM_URL: PlatformUrls | string = PlatformUrls.NA1
+  ) {
     this.setAPIKey(RIOT_API_KEY)
-    this.BASE_URL = BASE_URL
+    // check to make sure string in enum
+    console.log(REGION_URL)
+    this.REGION_URL = REGION_URL
+    this.PLATFORM_URL = PLATFORM_URL
   }
   private setAPIKey(NEW_API_KEY: string) {
     this.RIOT_API_KEY = NEW_API_KEY
