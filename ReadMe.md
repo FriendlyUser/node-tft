@@ -1,4 +1,4 @@
-### Riot Tft
+### Node Tft
 
 Typescript wrapper around the riot games api and utility functions so I can win more games of ranked tft.
 
