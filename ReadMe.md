@@ -9,3 +9,10 @@ Typescript wrapper around the riot games api and utility functions so I can win 
 3. Possibly useful for data science.
 4. Pull Info from games I win and/or lose
 5. Get a sense of how common certain builds are.
+
+
+Donate
+
+Eth: 0x9d18acAB9Fe749Cbf899B2FD63Bf25e64829bbF3
+
+PS, don't expect anyone to actually donate.

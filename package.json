@@ -38,5 +38,10 @@
       "dist/*.js",
       "node_modules"
     ]
-  }
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/FriendlyUser/node-tft.git"
+  },
+  "homepage": "https://friendlyuser.github.io/node-tft/"
 }
