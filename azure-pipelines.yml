@@ -1,0 +1,62 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: Credentials
+  - name: USERNAME
+    value: FriendlyUser
+steps:
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: '.npmrc'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+    npm run start
+  displayName: 'npm install and build'
+
+- script: |
+    rm -rf .git
+    npm install typedoc || true
+    npm run docs
+    cd docs
+    git init
+    git config --local user.name "Azure Pipelines"
+    git config --local user.email "azuredevops@microsoft.com"
+    git add . --force
+    git commit -m "Publishing GitHub Pages  ***NO_CI***"
+    git remote add origin https://$(USERNAME):$(GITHUB_TOKEN)@github.com/$(Build.Repository.Name).git
+    git push origin HEAD:refs/heads/gh-pages --force
+    cd ../
+  displayName: 'Deploy to GitHub Pages'
+  condition: |
+    and(not(eq(variables['Build.Reason'], 'PullRequest')),
+        eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  
+- task: DownloadSecureFile@1
+  name: npmrc
+  inputs:
+    secureFile: '.npmrc'
+  displayName: 'Download .npmrc'
+
+- script: |
+    ls
+    cp $(npmrc.secureFilePath) .npmrc
+    npm publish
+  displayName: 'Deploy to npm package'
+  condition: |
+    and(not(eq(variables['Build.Reason'], 'PullRequest')),
+        eq(variables['Build.SourceBranch'], 'refs/heads/master'))

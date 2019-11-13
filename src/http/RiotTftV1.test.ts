@@ -25,7 +25,9 @@ describe('Summoner Profile and Games', () => {
     summonerLevel: 69
   }
   beforeEach(() => {
+    fetch.resetMocks()
   })
+  // tommorow mock more tests out there
   test('Create New Configuration Settings', async () => {
     fetch
       .mockReturnValueOnce(Promise.resolve(new Response(JSON.stringify(sampleObj), ResponseJSON)))

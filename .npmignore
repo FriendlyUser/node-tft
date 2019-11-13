@@ -2,3 +2,6 @@ tsconfig.json
 src
 *.png
 manualTests
+typedoc.js
+jest.config.js
+*.test.ts

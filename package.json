@@ -1,17 +1,19 @@
 {
-  "name": "riot-tft",
+  "name": "node-tft",
   "version": "0.1.0",
-  "description": "Connecting to the riot tft api, simple wrapper and parser",
+  "description": "Connecting to the riot tft api, simple wrapper and parser. Only using tft endpoints ignoring all the standard league ones.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --testPathIgnorePatterns manualTests",
-    "test:manual": "jest --testPathIgnorePatterns src"
+    "test:manual": "jest --testPathIgnorePatterns src",
+    "docs": "typedoc"
   },
   "keywords": [
     "riot",
     "tft",
-    "typescript"
+    "typescript",
+    "node-fetch"
   ],
   "author": "David Li",
   "license": "ISC",

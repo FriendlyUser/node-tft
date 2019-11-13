@@ -8,10 +8,12 @@ module.exports = {
       '**/__fixtures__/**/*',
       '**/testsuite/**/*',
       'node_modules',
-      'dist'
+			'dist',
+			'*.test.ts',
+			'**/*.test.ts'
   ],
   mode: 'file',
-  excludeExternals: true,
-  excludeNotExported: true,
-  excludePrivate: true
+  excludeExternals: false,
+  excludeNotExported: false,
+  excludePrivate: false
 }
