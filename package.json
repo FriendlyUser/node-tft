@@ -7,7 +7,8 @@
   "scripts": {
     "test": "jest --testPathIgnorePatterns manualTests",
     "test:manual": "jest --testPathIgnorePatterns src",
-    "docs": "typedoc"
+    "docs": "typedoc . --readme ReadMe.md",
+    "build": "tsc"
   },
   "keywords": [
     "riot",
