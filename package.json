@@ -1,6 +1,6 @@
 {
   "name": "node-tft",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connecting to the riot tft api, simple wrapper and parser. Only using tft endpoints ignoring all the standard league ones.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,8 +40,8 @@
     ]
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/FriendlyUser/node-tft.git"
+    "type": "git",
+    "url": "https://github.com/FriendlyUser/node-tft.git"
   },
   "homepage": "https://friendlyuser.github.io/node-tft/"
 }
