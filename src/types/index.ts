@@ -74,3 +74,35 @@ export interface TFTMatch {
   readonly info: MatchInfo
   readonly metadata: MatchMetaData
 }
+
+// LEAGUE ENUMS COPYING LEAGUE SCHEMA
+// https://developer.riotgames.com/apis#tft-league-v1/GET_getChallengerLeague
+
+export interface LeagueListDTO {
+  leagueId:	string	
+  tier:	string	
+  entries:	Array<LeagueItemDTO>
+  queue:	string	
+  name:	string
+}
+
+interface LeagueItemDTO {
+  summonerName:	string	
+  hotStreak:	boolean	
+  miniSeries:	MiniSeriesDTO	
+  wins:	number
+  veteran:	boolean	
+  losses:	number
+  freshBlood:	boolean	
+  inactive:	boolean	
+  rank:	string	
+  summonerId:	string
+  leaguePoints:	number
+}
+
+interface MiniSeriesDTO {
+  progress:	string	
+  losses:	number	
+  target:	number	
+  wins:	number
+}

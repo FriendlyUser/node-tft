@@ -129,7 +129,26 @@ export class Riot implements RiotInterface {
     })
     return userInfo
   }
-
+  /********************************************************
+   *********************** LEAGUE *************************
+   ********************************************************/
+  public async getTftChallenger(): Promise<SummonerObj> {
+    const userInfo: SummonerObj = await fetch(
+      `https://${this.PLATFORM_URL}/tft/league/v1/challenger`,
+      this.makeFetchOptions()
+    )
+    .then( (resp: any) => {
+      return resp.json() 
+    })
+    .then( (jsonObj: SummonerObj) => {
+      return jsonObj
+    })
+    .catch( (err: any) => {
+      // do logging
+      throw new Error('Failed to Get Data from Riot TFT API')
+    })
+    return userInfo
+  }
   // RIOT API KEY SET AND GET
   public setAPIKey(NEW_API_KEY: string) {
     this.RIOT_API_KEY = NEW_API_KEY
