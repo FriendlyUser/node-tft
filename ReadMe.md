@@ -10,6 +10,24 @@ Typescript wrapper around the riot games api and utility functions so I can win 
 4. Pull Info from games I win and/or lose
 5. Get a sense of how common certain builds are.
 
+# Endpoints
+
+## TFT SUMMONER V1
+- [x] `Get a summoner by account ID.`
+- [x] `Get a summoner by summoner name.`
+- [x] `Get a summoner by PUUID.`
+- [x] `Get a summoner by summoner ID.`
+
+## TFT MATCH V1
+- [x] `Get match list by summoner PUUID.`
+- [x] `Get match list details.`
+
+## TFT LEAGUE V1
+- [x] `Get the challenger league for given queue.`
+- [x] `Get league entries in all queues for a given summoner ID.`
+- [x] `Get all the league entries.`
+- [x] `Get league with given ID, including inactive entries.`
+- [x] `Get the master league for given queue.`
 
 Donate
 

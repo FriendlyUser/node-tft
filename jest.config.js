@@ -4,6 +4,7 @@ module.exports = {
   testPathIgnorePatterns: [
     "dist/*.js",
     "./node_modules",
-    "./dist"
+    "./dist",
+    "dist/*.test.ts"
   ]
 }

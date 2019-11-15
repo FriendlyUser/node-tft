@@ -32,3 +32,25 @@ export enum HTTP {
   PUT = 'PUT',
   DELETE = 'DELETE'
 }
+
+export enum Tier {
+  IRON = 'IRON',
+  BRONZE = 'BRONZE',
+  SLIVER = 'SLIVER',
+  GOLD = 'GOLD',
+  PLATINUM = 'PLATINUM',
+  DIAMOND = 'DIAMOND'
+}
+
+export enum Division {
+  I = 'I',
+  II = 'II',
+  III = 'III',
+  IV = 'IV'
+}
+
+export enum AdvLeague {
+  challenger = 'challenger',
+  master = 'master',
+  grandmaster = 'grandmaster'
+}

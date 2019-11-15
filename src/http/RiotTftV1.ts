@@ -1,7 +1,7 @@
 // Connect to riot games http
 import fetch from 'node-fetch'
-import { RegionalUrls, PlatformUrls, HTTP } from '../enums'
-import { TFTMatch, SummonerObj, RiotInterface } from '../types'
+import { RegionalUrls, PlatformUrls, HTTP, Tier, Division, AdvLeague } from '../enums'
+import { TFTMatch, SummonerObj, RiotInterface, LeagueListDTO, LeagueEntryDTO } from '../types'
 export class Riot implements RiotInterface {
   private RIOT_API_KEY: string
   constructor(
@@ -121,6 +121,82 @@ export class Riot implements RiotInterface {
       return resp.json() 
     })
     .then( (jsonObj: SummonerObj) => {
+      return jsonObj
+    })
+    .catch( (err: any) => {
+      // do logging
+      throw new Error('Failed to Get Data from Riot TFT API')
+    })
+    return userInfo
+  }
+  /********************************************************
+   *********************** LEAGUE *************************
+   ********************************************************/
+
+  // must be master, challenger or grandmaster
+  public async getTftAdvLeague(leagueName: AdvLeague | string = AdvLeague.challenger): Promise<LeagueListDTO> {
+    const userInfo: LeagueListDTO = await fetch(
+      `https://${this.PLATFORM_URL}/tft/league/v1/${leagueName}`,
+      this.makeFetchOptions()
+    )
+    .then( (resp: any) => {
+      return resp.json() 
+    })
+    .then( (jsonObj: LeagueListDTO) => {
+      return jsonObj
+    })
+    .catch( (err: any) => {
+      // do logging
+      throw new Error('Failed to Get Data from Riot TFT API')
+    })
+    return userInfo
+  }
+
+  public async getTftLeagueById(leagueId: string): Promise<LeagueListDTO> {
+    const userInfo: LeagueListDTO = await fetch(
+      `https://${this.PLATFORM_URL}/tft/leagues/${leagueId}`,
+      this.makeFetchOptions()
+    )
+    .then( (resp: any) => {
+      return resp.json() 
+    })
+    .then( (jsonObj: LeagueListDTO) => {
+      return jsonObj
+    })
+    .catch( (err: any) => {
+      // do logging
+      throw new Error('Failed to Get Data from Riot TFT API')
+    })
+    return userInfo
+  }
+
+  public async getTftMatches(encryptedSummonerId: string): Promise<LeagueListDTO> {
+    const userInfo: LeagueListDTO = await fetch(
+      `https://${this.PLATFORM_URL}/tft/league/v1/entries/by-summoner/${encryptedSummonerId}`,
+      this.makeFetchOptions()
+    )
+    .then( (resp: any) => {
+      return resp.json() 
+    })
+    .then( (jsonObj: LeagueListDTO) => {
+      return jsonObj
+    })
+    .catch( (err: any) => {
+      // do logging
+      throw new Error('Failed to Get Data from Riot TFT API')
+    })
+    return userInfo
+  }
+
+  public async getTftEntriesByTier(tier: Tier | string = Tier.DIAMOND, division: Division | string = Division.I): Promise<LeagueEntryDTO> {
+    const userInfo: LeagueEntryDTO = await fetch(
+      `https://${this.PLATFORM_URL}/tft/league/v1/entries/${tier}/${division}`,
+      this.makeFetchOptions()
+    )
+    .then( (resp: any) => {
+      return resp.json() 
+    })
+    .then( (jsonObj: LeagueEntryDTO) => {
       return jsonObj
     })
     .catch( (err: any) => {

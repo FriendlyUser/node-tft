@@ -1,5 +1,5 @@
 import { Riot } from '../src/http/RiotTftV1'
-import { TFTMatch, SummonerObj } from '../src/types'
+import { TFTMatch, SummonerObj, LeagueListDTO, LeagueEntryDTO } from '../src/types'
 require('dotenv').config()
 describe('Summoner Profile and Games', () => {
   let riotHttp = null
@@ -21,7 +21,6 @@ describe('Summoner Profile and Games', () => {
     const sumObj: SummonerObj = await riotHttp.getTftSummonerByName(userName)
     expect(sumObj).toBeInstanceOf(Object)
     expect(sumObj.name).toBe(userName)
-    console.log(sumObj)
   }, 10000)
   test('getTftSummonerByAccount()', async () => {
     riotHttp = new Riot(process.env.RIOT_API_KEY)
@@ -33,7 +32,6 @@ describe('Summoner Profile and Games', () => {
     riotHttp = new Riot(process.env.RIOT_API_KEY)
     const sumObj: SummonerObj = await riotHttp.getTftSummonerByPuuid(puuId)
     expect(sumObj).toBeInstanceOf(Object)
-    console.log(sumObj)
     expect(sumObj.name).toBe(userName)
   }, 10000)
   test('getTftSummonerByPuuid()', async () => {
@@ -48,4 +46,13 @@ describe('Summoner Profile and Games', () => {
   test('getTftByMatchId()', async () => {
     const sumObj: TFTMatch = await riotHttp.getTftByMatchId(naMatchId)
   }, 10000)
+
+  test('getTftAdvLeague(challenger)', async () => {
+    const leagueList: LeagueListDTO = await riotHttp.getTftAdvLeague()
+  }, 10000) 
+
+  test('getTftMatches()', async () => {
+    const leagueList: LeagueEntryDTO = await riotHttp.getTftMatches(id)
+    expect(leagueList).toBeInstanceOf(Array)
+  }, 10000) 
 })
