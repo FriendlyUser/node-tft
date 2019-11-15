@@ -48,3 +48,9 @@ export enum Division {
   III = 'III',
   IV = 'IV'
 }
+
+export enum AdvLeague {
+  challenger = 'challenger',
+  master = 'master',
+  grandmaster = 'grandmaster'
+}

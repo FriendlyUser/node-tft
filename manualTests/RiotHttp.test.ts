@@ -47,8 +47,8 @@ describe('Summoner Profile and Games', () => {
     const sumObj: TFTMatch = await riotHttp.getTftByMatchId(naMatchId)
   }, 10000)
 
-  test('getTftChallenger()', async () => {
-    const leagueList: LeagueListDTO = await riotHttp.getTftChallenger()
+  test('getTftAdvLeague(challenger)', async () => {
+    const leagueList: LeagueListDTO = await riotHttp.getTftAdvLeague()
   }, 10000) 
 
   test('getTftMatches()', async () => {

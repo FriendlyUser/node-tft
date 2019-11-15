@@ -1,6 +1,6 @@
 // Connect to riot games http
 import fetch from 'node-fetch'
-import { RegionalUrls, PlatformUrls, HTTP, Tier, Division } from '../enums'
+import { RegionalUrls, PlatformUrls, HTTP, Tier, Division, AdvLeague } from '../enums'
 import { TFTMatch, SummonerObj, RiotInterface, LeagueListDTO, LeagueEntryDTO } from '../types'
 export class Riot implements RiotInterface {
   private RIOT_API_KEY: string
@@ -134,7 +134,7 @@ export class Riot implements RiotInterface {
    ********************************************************/
 
   // must be master, challenger or grandmaster
-  public async getTftAdvLeague(leagueName = 'challenger'): Promise<LeagueListDTO> {
+  public async getTftAdvLeague(leagueName: AdvLeague | string = AdvLeague.challenger): Promise<LeagueListDTO> {
     const userInfo: LeagueListDTO = await fetch(
       `https://${this.PLATFORM_URL}/tft/league/v1/${leagueName}`,
       this.makeFetchOptions()
